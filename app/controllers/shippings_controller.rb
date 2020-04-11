@@ -27,6 +27,13 @@ class ShippingsController < ApplicationController
 			render :edit
 		end
 	end
+	def destroy
+		@shipping = Shipping.find(params[:id])
+		if @shipping.destroy
+			flash[:notice_destroy] = "配送先を削除しました！"
+			redirect_to shippings_path
+		end
+	end
 
 
 	private
