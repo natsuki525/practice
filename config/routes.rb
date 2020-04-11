@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   }
   resource :customer, only: [:show, :edit, :update, :destroy]
   resources :shippings, except: [:show]
+
+  namespace :admin do
+    resources :items
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
