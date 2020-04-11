@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   	registrations: 'devise/customers/registrations'
   }
   resource :customer, only: [:show, :edit, :update, :destroy]
+  resources :shippings, except: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
