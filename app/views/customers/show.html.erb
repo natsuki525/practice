@@ -1,7 +1,6 @@
 <div class="container mx-auto" style="width: 600px;">
-	<div class="row">
-		<h2 class="text-center">マイページ</h2>
-	</div>
+	<h2 class="text-center">マイページ</h2>
+	<br>
 	<div class="row">
 		<%= flash[:notice_update] %>
 	</div>
@@ -16,6 +15,7 @@
 			<%= link_to "パスワードを変更する", edit_customer_registration_path, class:"btn btn-outline-primary mb-2" %>
 		</div>
 	</div>
+	<br>
 	<div class="row">
 		<table class="table">
 			<tr>
@@ -44,6 +44,7 @@
 			</tr>
 		</table>
 	</div>
+	<br>
 	<div class="row">
 		<div class="col-lg-6 text-center">
 			<h3>配送先</h3>
