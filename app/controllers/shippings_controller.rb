@@ -15,6 +15,19 @@ class ShippingsController < ApplicationController
 			render :index
 		end
 	end
+	def edit
+		@shipping = Shipping.find(params[:id])
+	end
+	def update
+		@shipping = Shipping.find(params[:id])
+		if @shipping.update(shipping_params)
+			flash[:notice_fix] = "配送先情報を修正しました！"
+			redirect_to shippings_path
+		else
+			render :edit
+		end
+	end
+
 
 	private
 	def shipping_params
