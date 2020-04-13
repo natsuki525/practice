@@ -1,0 +1,23 @@
+<div class="container">
+	<%= form_for(@genre, url: {controller: "genres", action: "create"}) do |f| %>
+	<h3 class="text-center">新規ジャンル追加</h3>
+	<%= flash[:notice_genre] %>
+		<div class="row errors mx-auto">
+			<% if @genre.errors.any? %>
+		        <h5><%= @genre.errors.count %>件のエラーがあります</h5>
+		            <ul>
+		                <% @genre.errors.full_messages.each do |message| %>
+		                	<li><%= message %></li>
+		                <% end %>
+		            </ul>
+		    <% end %>
+		</div>
+		<div class="row admin-genre-create mx-auto" style="width: 300px;">
+			<%= f.text_field :name, class:"form-control mb-2" %>
+			<%= f.radio_button :is_active, :true %>有効
+			<%= f.radio_button :is_active, :false %>無効
+			<%= f.submit "追加", class:"btn btn-outline-primary" %>
+		</div>
+	<% end %>
+	<div class="row admin-genre-index mx-auto"></div>
+</div>
