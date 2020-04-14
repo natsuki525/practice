@@ -20,6 +20,20 @@ class Admin::ItemsController < ApplicationController
 	def show
 		@item = Item.find(params[:id])
 	end
+	def edit
+		@item = Item.find(params[:id])
+		@genres = Genre.all
+	end
+	def update
+		@item = Item.find(params[:id])
+		@genres = Genre.all
+		if @item.update
+			redirect_to admin_item_path(@item)
+			flash[:notice_update] = "商品が更新されました！"
+		else
+			render :edit
+		end
+	end
 
 	private
     def item_params
