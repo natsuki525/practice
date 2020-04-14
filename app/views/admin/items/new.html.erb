@@ -30,8 +30,8 @@
 			</tr>
 			<br>
 			<tr>
-				<th>ジャンル</th><br>
-				<td>ケーキ</td>
+				<th><%= f.label :"ジャンル" %></th>
+				<td><%= f.collection_select(:genre_id, @genres, :id, :name) %></td>
 			</tr>
 			<br>
 			<tr>

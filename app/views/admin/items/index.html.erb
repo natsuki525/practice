@@ -1,9 +1,9 @@
 <div class="container mx-auto" style="width: 600px;">
-	<h3 class="text-center">商品一覧</h3>
+	<h3 class="text-center">商品一覧</h3><br>
 	<font color="red">
 	<%= flash[:notice_new] %>
 	</font>
-	<div class="row admin-item-index">
+	<div class="row admin-item-index text-center">
 		<table class="table">
 			<thead>
 				<tr>
@@ -20,7 +20,7 @@
 					<td><%= item.id %></td>
 					<td><%= item.name %></td>
 					<td><%= item.price %></td>
-					<td></td>
+					<td><%= item.genre.name %></td>
 					<td>
 						<% if item.is_sold? %>
 							<p>売り切れ</p>
