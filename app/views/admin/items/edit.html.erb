@@ -1,0 +1,50 @@
+<div class="container mx-auto admin-items-new">
+	<h2 class="text-center">商品編集</h2>
+	<br>
+	<div class="row errors">
+	<% if @item.errors.any? %>
+         <h2><%= @item.errors.count %>件のエラーがあります</h2>
+            <ul>
+               <% @item.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+            </ul>
+    <% end %>
+	</div>
+	<%= form_for(@item, url: {controller: "items", action: "update"}) do |f| %>
+	<div class="row">
+		<div class="col-6">
+			<%= f.attachment_field :image %>
+		</div>
+		<div class="col-6">
+			<tr>
+				<th><%= f.label :"商品名" %></th>
+				<td><%= f.text_field :name, class:"form-control" %></td>
+			</tr>
+			<br>
+			<tr>
+				<th><%= f.label :"商品説明" %></th>
+				<td><%= f.text_field :introduction, class:"form-control" %></td>
+			</tr>
+			<br>
+			<tr>
+				<th><%= f.label :"ジャンル" %></th>
+				<td><%= f.collection_select(:genre_id, @genres, :id, :name) %></td>
+			</tr>
+			<br>
+			<tr>
+				<th><%= f.label :"税抜き価格" %></th>
+				<td><%= f.number_field :price, class:"form-control" %></td>
+			</tr>
+			<br>
+			<tr>
+				<th><%= f.label :"販売ステータス" %></th>
+				<td><%= f.select :is_sold, [["販売中","false"],["売り切れ","true"]], class:"form-control" %></td>
+			</tr>
+			<br>
+			<br>
+			<%= f.submit "変更を保存", class:"btn btn-outline-primary"%>
+		</div>
+	</div>
+	<% end %>
+</div>
