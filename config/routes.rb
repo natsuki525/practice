@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   }
   resource :customer, only: [:show, :edit, :update, :destroy]
   resources :shippings, except: [:show]
+  resources :items, only: [:index, :show]
 
   namespace :admin do
     resources :items
