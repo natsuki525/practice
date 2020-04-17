@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'home#top'
   devise_for :admins, controllers: {
   	sessions: 'devise/admin/sessions',
   	passwords: 'devise/admin/passwords',
