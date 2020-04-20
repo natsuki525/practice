@@ -19,6 +19,7 @@
 			</div>
 			<br>
 			<%= form_for @cart_item do |f| %>
+				<%= f.hidden_field :item_id, value: @item.id %>
 			<div class="item-select">
 				<div class="select-q">
 					<%= f.select :quantity, options_for_select((1...6).to_a), include_blank: "個数選択" %>
